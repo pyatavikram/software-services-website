@@ -43,7 +43,7 @@ const benefits = [
   {
     icon: Rocket,
     title: "Cutting-Edge Projects",
-    description: "Work on innovative technologies and challenging problems that push the boundaries of what's possible."
+    description: "Work on innovative technologies and challenging problems that push the boundaries of what&apos;s possible."
   },
   {
     icon: DollarSign,
@@ -214,7 +214,7 @@ export default function Careers() {
               </span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              We're always looking for talented people to build the future with us. 
+              We&apos;re always looking for talented people to build the future with us.
               Join a team that values innovation, creativity, and personal growth.
             </p>
           </div>
@@ -356,7 +356,7 @@ export default function Careers() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Growth-Focused</h3>
                 <p className="text-white/70 leading-relaxed">
-                  We invest in our people's development and provide opportunities for career advancement.
+                  We invest in our people&apos;s development and provide opportunities for career advancement.
                 </p>
               </CardContent>
             </Card>
@@ -368,10 +368,10 @@ export default function Careers() {
       <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Don't See the Right Role?
+            Don&apos;t See the Right Role?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            We're always looking for exceptional talent. Send us your resume and let's start a conversation!
+            We&apos;re always looking for exceptional talent. Send us your resume and let&apos;s start a conversation!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 px-8 py-4 rounded-full font-semibold text-lg">

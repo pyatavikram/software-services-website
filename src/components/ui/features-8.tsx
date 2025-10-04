@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Shield, Users, Zap, Globe, Lock, Headphones, DollarSign, Award } from 'lucide-react'
+import { Shield, Users, Zap, Globe, Headphones, DollarSign, Award } from 'lucide-react'
 
 export function Features() {
     return (

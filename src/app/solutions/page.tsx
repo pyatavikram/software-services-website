@@ -1,9 +1,9 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 import StaggeredMenu from '@/components/ui/StaggeredMenu'
-import DisplayCards from '@/components/ui/display-cards'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { 
@@ -19,8 +19,7 @@ import {
   CheckCircle,
   Globe,
   Zap,
-  Shield,
-  Users
+  Shield
 } from 'lucide-react'
 
 const menuItems = [
@@ -223,9 +222,11 @@ export default function Solutions() {
             {solutions.map((solution, index) => (
               <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group overflow-hidden">
                 <div className="relative">
-                  <img 
+                  <Image
                     src={solution.image} 
                     alt={solution.title}
+                    width={600}
+                    height={400}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -337,7 +338,7 @@ export default function Solutions() {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss your requirements and create a custom solution that drives your business forward
+            Let&apos;s discuss your requirements and create a custom solution that drives your business forward
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 px-8 py-4 rounded-full font-semibold text-lg">

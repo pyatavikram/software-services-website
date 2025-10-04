@@ -9,7 +9,6 @@ interface DisplayCardProps {
   title?: string;
   description?: string;
   date?: string;
-  iconClassName?: string;
   titleClassName?: string;
 }
 
@@ -19,7 +18,6 @@ function DisplayCard({
   title = "Featured",
   description = "Discover amazing content",
   date = "Just now",
-  iconClassName = "text-blue-500",
   titleClassName = "text-blue-500",
 }: DisplayCardProps) {
   return (
@@ -33,9 +31,7 @@ function DisplayCard({
         <span className="relative inline-block rounded-full bg-blue-800 p-1">
           {icon}
         </span>
-        <span className={cn("text-sm font-medium", titleClassName)}>
-          {title}
-        </span>
+        <p className={cn("text-lg font-medium", titleClassName)}>{title}</p>
       </div>
       <p className="whitespace-nowrap text-lg">{description}</p>
       <p className="text-muted-foreground">{date}</p>

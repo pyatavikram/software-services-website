@@ -6,11 +6,8 @@ import { Features } from "@/components/ui/features-8";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import StaggeredMenu from "@/components/ui/StaggeredMenu";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Code, Smartphone, Monitor, Palette, Brain, Cloud, TrendingUp, Lightbulb, Search, Users, Clock, CheckCircle } from "lucide-react";
+import { Code, Palette, Cloud, Search, Users, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { SVGProps } from "react";
@@ -144,13 +141,13 @@ const teamTestimonials = [
     src: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    quote: "Great design is invisible. It's about creating intuitive experiences that feel natural and effortless, allowing users to focus on what matters most to them.",
+    quote: "Great design is invisible. It&apos;s about creating intuitive experiences that feel natural and effortless, allowing users to focus on what matters most to them.",
     name: "Michael Rodriguez",
     designation: "Lead Designer",
     src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    quote: "Clean code is not just about functionality—it's about creating sustainable, scalable solutions that stand the test of time and evolving requirements.",
+    quote: "Clean code is not just about functionality—it&apos;s about creating sustainable, scalable solutions that stand the test of time and evolving requirements.",
     name: "Emily Watson",
     designation: "Senior Developer",
     src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -230,9 +227,6 @@ const allLogos = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Navigation */}
-      <StaggeredMenu />
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated grid background */}
@@ -429,7 +423,7 @@ export default function Home() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Let's discuss your project and discover how we can help you achieve your goals with cutting-edge technology solutions.
+              Let&apos;s discuss your project and discover how we can help you achieve your goals with cutting-edge technology solutions.
             </p>
             <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
               <Link href="/contact">Schedule a Consultation</Link>
