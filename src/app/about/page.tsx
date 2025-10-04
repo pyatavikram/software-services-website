@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 import StaggeredMenu from '@/components/ui/StaggeredMenu'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -83,14 +84,14 @@ const team = [
     name: "Emily Rodriguez",
     role: "Lead Designer",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    quote: "Great design is not just about aesthetics—it's about creating intuitive experiences that users love.",
+    quote: "Great design is not just about aesthetics—it&apos;s about creating intuitive experiences that users love.",
     icon: Palette
   },
   {
     name: "David Thompson",
     role: "AI/ML Director",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    quote: "Artificial intelligence isn't the future—it's the present, and we're here to help you harness its power.",
+    quote: "Artificial intelligence isn&apos;t the future—it&apos;s the present, and we&apos;re here to help you harness its power.",
     icon: Brain
   }
 ]
@@ -163,9 +164,11 @@ export default function About() {
               </div>
             </div>
             <div className="relative">
-              <img 
+                <Image
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
                 alt="Team collaboration"
+                  width={600}
+                  height={400}
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-2xl"></div>
@@ -233,9 +236,11 @@ export default function About() {
               <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 group overflow-hidden">
                 <CardContent className="p-0">
                   <div className="relative">
-                    <img 
+                      <Image
                       src={member.image} 
                       alt={member.name}
+                        width={400}
+                        height={400}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -246,7 +251,7 @@ export default function About() {
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-white mb-1">{member.name}</h3>
                     <p className="text-purple-300 mb-3">{member.role}</p>
-                    <p className="text-sm text-white/70 italic">"{member.quote}"</p>
+                      <p className="text-sm text-white/70 italic">&quot;{member.quote}&quot;</p>
                   </div>
                 </CardContent>
               </Card>
@@ -262,7 +267,7 @@ export default function About() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and discover how our team can help bring your vision to life
+            Let&apos;s discuss your project and discover how our team can help bring your vision to life
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90 px-8 py-4 rounded-full font-semibold text-lg">

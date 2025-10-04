@@ -27,18 +27,18 @@ export default function RadialOrbitalTimeline({
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
     {}
   );
-  const [viewMode, setViewMode] = useState<"orbital">("orbital");
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
-  const [centerOffset, setCenterOffset] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -85,7 +85,7 @@ export default function RadialOrbitalTimeline({
   useEffect(() => {
     let rotationTimer: NodeJS.Timeout;
 
-    if (autoRotate && viewMode === "orbital") {
+    if (autoRotate) {
       rotationTimer = setInterval(() => {
         setRotationAngle((prev) => {
           const newAngle = (prev + 0.3) % 360;
@@ -99,10 +99,10 @@ export default function RadialOrbitalTimeline({
         clearInterval(rotationTimer);
       }
     };
-  }, [autoRotate, viewMode]);
+  }, [autoRotate]);
 
   const centerViewOnNode = (nodeId: number) => {
-    if (viewMode !== "orbital" || !nodeRefs.current[nodeId]) return;
+    if (!nodeRefs.current[nodeId]) return;
 
     const nodeIndex = timelineData.findIndex((item) => item.id === nodeId);
     const totalNodes = timelineData.length;
@@ -116,13 +116,15 @@ export default function RadialOrbitalTimeline({
     const radius = 200;
     const radian = (angle * Math.PI) / 180;
 
-    const x = radius * Math.cos(radian) + centerOffset.x;
-    const y = radius * Math.sin(radian) + centerOffset.y;
+    const x = Number((radius * Math.cos(radian) + centerOffset.x).toFixed(3));
+    const y = Number((radius * Math.sin(radian) + centerOffset.y).toFixed(3));
 
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
-    const opacity = Math.max(
-      0.4,
-      Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))
+    const opacity = Number(
+      Math.max(
+        0.4,
+        Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2))
+      ).toFixed(3)
     );
 
     return { x, y, angle, zIndex, opacity };
@@ -152,6 +154,10 @@ export default function RadialOrbitalTimeline({
     }
   };
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div
       className="w-full h-screen flex flex-col items-center justify-center bg-black overflow-hidden"
@@ -164,7 +170,6 @@ export default function RadialOrbitalTimeline({
           ref={orbitRef}
           style={{
             perspective: "1000px",
-            transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
           <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
